@@ -10,8 +10,19 @@
 	</head>
 	<body>
 		{% include browser-upgrade.html %}
-		<div>
-			{{ content }}
+		<div class="container-fluid">
+			<div class="row">
+  			<div class="col-xs-12 col-sm-6 col-md-8">
+					{{ content }}
+				</div>
+  			<div class="col-xs-6 col-md-4">
+					{% include menu.html %}
+				</div>
+				<div class="clearfix visible-xs-block"></div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			{% include footer.html %}
 		</div>
 		<footer>
 		</footer>
