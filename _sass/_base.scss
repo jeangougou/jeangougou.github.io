@@ -17,7 +17,7 @@ body {
     font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
     color: $text-color;
     background-color: $background-color;
-		background-image: url($background-url);
+//		background-image: url($background-url);
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
@@ -25,8 +25,6 @@ body {
     font-feature-settings: "kern" 1;
     font-kerning: normal;
 }
-
-
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
@@ -102,6 +100,7 @@ a {
     &:hover {
         color: $text-color;
         text-decoration: underline;
+				background-color: $brand-color;
     }
 }
 
@@ -157,10 +156,7 @@ pre {
  * Wrapper
  */
 .wrapper {
-    max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width:         calc(#{$content-width} - (#{$spacing-unit} * 2));
-    margin-right: auto;
-    margin-left: auto;
+		margin: 0 3%;
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
     @extend %clearfix;
