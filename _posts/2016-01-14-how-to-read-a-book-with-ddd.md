@@ -4,7 +4,7 @@ title:  "How to read a book with DDD"
 date:   2016-01-14 22:51:21 +0000
 categories: architecture design
 description: "differences between a vanilla Domain Driven Desing (DDD) and Event Sourcing (ES) from a persistence layer perspective"
-published: false
+published: true
 ---
 
 # DDD in different flavors
@@ -46,25 +46,25 @@ so a short aggregate root for the book entity would probably contain a construct
 
 class BookAggregate 
 {
-	// a constructor shall always enforce a valid state, since the inception of a new instance
-	// having the id generated as soon as possible can help a long way in a context of eventual consistency
-	BookAggregate(id, totalNumberOfPagesInTheBook){ // so by default 
-		this.id = id;
-		this.currentPage = 1;
-		if(totalNumberOfPagesInTheBook <= 0)
-		 throw new Error("Uhm .. you should count the book pages again.");
-		this.totalNumberOfPagesInTheBook = totalNumberOfPagesInTheBook;
-	}
+  // a constructor shall always enforce a valid state, since the inception of a new instance
+  // having the id generated as soon as possible can help a long way in a context of eventual consistency
+  BookAggregate(id, totalNumberOfPagesInTheBook){ // so by default 
+    this.id = id;
+    this.currentPage = 1;
+    if(totalNumberOfPagesInTheBook <= 0)
+     throw new Error("Uhm .. you should count the book pages again.");
+    this.totalNumberOfPagesInTheBook = totalNumberOfPagesInTheBook;
+  }
 
-	// meant to be private
-	function isValidPage(nextPage){ 
-		return 1 <= nextPage && nextPage >= this.totalNumberOfPagesInTheBook;
-	}
-	
-	// simple getter, also private
-	function getCurrentPage(){
-		return this.currentPage;
-	}
+  // meant to be private
+  function isValidPage(nextPage){ 
+    return 1 <= nextPage && nextPage >= this.totalNumberOfPagesInTheBook;
+  }
+  
+  // simple getter, also private
+  function getCurrentPage(){
+    return this.currentPage;
+  }
 }
 
 {% endhighlight %}
@@ -76,15 +76,15 @@ Now we can consider the most complex scenario, jumping to a generic page in the 
 {% highlight javascript %}
 
 function moveToPage(pageNumber){ 
-	// check if the page is in the book
-	if(!isValidPage(pageNumber))
-	{
-		throw new Error("Oh snap! the book only contains: "+ this.totalNumberOfPagesInTheBook + " and I can't really select page " + pageNumber);
-	}
-	this.currentPage = 1;
-	... 
-	// domain event publishing
-	...
+  // check if the page is in the book
+  if(!isValidPage(pageNumber))
+  {
+    throw new Error("Oh snap! the book only contains: "+ this.totalNumberOfPagesInTheBook + " and I can't really select page " + pageNumber);
+  }
+  this.currentPage = 1;
+  ... 
+  // domain event publishing
+  ...
 };
 
 {% endhighlight %}
@@ -97,11 +97,11 @@ The last two methods can be quickly implemented as:
 {% highlight javascript %}
 
 function moveToNextPage(){ 
-	moveToPage(getCurrentPage() + 1);
+  moveToPage(getCurrentPage() + 1);
 };
 
 function moveToPreviousPage(){ 
-	moveToPage(getCurrentPage() - 1);
+  moveToPage(getCurrentPage() - 1);
 };
 
 {% endhighlight %}
@@ -125,9 +125,9 @@ repository.save(book);
 // storage will contain then
 => 
 {
-	id: 1234-0987,
-	currentPage: 1,
-	pagesInTheBook : 345
+  id: 1234-0987,
+  currentPage: 1,
+  pagesInTheBook : 345
 }
 
 {% endhighlight %}
@@ -148,9 +148,9 @@ repository.save(book);
 // storage will now contain
 => 
 {
-	id: 1234-0987,
-	currentPage: 4,
-	pagesInTheBook : 345
+  id: 1234-0987,
+  currentPage: 4,
+  pagesInTheBook : 345
 }
 
 {% endhighlight %}
@@ -166,29 +166,29 @@ Or we could use *Event Sourcing* and, instead of saving the whole BookAggregate 
 {% highlight javascript %}
 
 BookAggregate(id, totalNumberOfPagesInTheBook){ // so by default 
-		...
-		// on creation we want to know that a new book is available from an event perspective too
-		publish({
-			bookIsbnCode: this.id,
-			eventName:'BookAdded',
-			totalNumberOfPagesInTheBook: totalNumberOfPagesInTheBook,
-			pageNumber : this.currentPage, // we assumed before that the initial page is page 1
-			when: new Date().toISOString()
-		});
-	}
+    ...
+    // on creation we want to know that a new book is available from an event perspective too
+    publish({
+      bookIsbnCode: this.id,
+      eventName:'BookAdded',
+      totalNumberOfPagesInTheBook: totalNumberOfPagesInTheBook,
+      pageNumber : this.currentPage, // we assumed before that the initial page is page 1
+      when: new Date().toISOString()
+    });
+  }
 
 ...
 
 function moveToPage(pageNumber){ 
-	// previous implementation
-	...
-	// publishing the event 'MovedToPage' to track the page change to the parameter pageNumber
-	publish({
-		bookIsbnCode: this.id,
-		eventName:'MovedToPage',
-		pageNumber: pageNumber,
-		when: new Date().toISOString()
-	});
+  // previous implementation
+  ...
+  // publishing the event 'MovedToPage' to track the page change to the parameter pageNumber
+  publish({
+    bookIsbnCode: this.id,
+    eventName:'MovedToPage',
+    pageNumber: pageNumber,
+    when: new Date().toISOString()
+  });
 };
 
 {% endhighlight %}
@@ -199,27 +199,27 @@ Let's assume the same behaviour as before is carried through but, instead of sav
 {% highlight javascript %}
 
 {
-	bookIsbnCode: 1234-0987,
-	eventName:'BookAdded',
-	totalNumberOfPagesInTheBook: 345,
-	pageNumber: 1,
-	when: '2016-01-01T22:21:40.806Z'
+  bookIsbnCode: 1234-0987,
+  eventName:'BookAdded',
+  totalNumberOfPagesInTheBook: 345,
+  pageNumber: 1,
+  when: '2016-01-01T22:21:40.806Z'
 }
 
 // then, moving to page 3
 {
-	bookIsbnCode: 1234-0987,
-	eventName:'MovedToPage',
-	pageNumber: 3,
-	when: '2016-01-04T10:27:26.942Z'
+  bookIsbnCode: 1234-0987,
+  eventName:'MovedToPage',
+  pageNumber: 3,
+  when: '2016-01-04T10:27:26.942Z'
 }
 
 // then again, moving to page 4
 {
-	bookIsbnCode: 1234-0987,
-	eventName:'MovedToPage',
-	pageNumber: 4,
-	when: '2016-01-06T15:04:34.347Z'
+  bookIsbnCode: 1234-0987,
+  eventName:'MovedToPage',
+  pageNumber: 4,
+  when: '2016-01-06T15:04:34.347Z'
 }
 
 {% endhighlight %}
