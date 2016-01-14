@@ -48,7 +48,7 @@ class BookAggregate
 {
   // a constructor shall always enforce a valid state, since the inception of a new instance
   // having the id generated as soon as possible can help a long way in a context of eventual consistency
-  BookAggregate(id, totalNumberOfPagesInTheBook){ // so by default 
+  BookAggregate(id, totalNumberOfPagesInTheBook){
     this.id = id;
     this.currentPage = 1;
     if(totalNumberOfPagesInTheBook <= 0)
@@ -79,7 +79,11 @@ function moveToPage(pageNumber){
   // check if the page is in the book
   if(!isValidPage(pageNumber))
   {
-    throw new Error("Oh snap! the book only contains: "+ this.totalNumberOfPagesInTheBook + " and I can't really select page " + pageNumber);
+    throw new Error(
+      "Oh snap! the book only contains: "
+      + this.totalNumberOfPagesInTheBook 
+      + " and I can't really select page " 
+      + pageNumber);
   }
   this.currentPage = 1;
   ... 
@@ -88,6 +92,7 @@ function moveToPage(pageNumber){
 };
 
 {% endhighlight %}
+
 
 Again a direct sample that before moving to the desired page checks again if the action can be done successfully, if the book contains 105 pages and we try to read page 108 there is a problem somewhere.
 The other two methods that move a single page forward of backward can be internally implemented through the _moveToPage_ method, it is generally better to use self encapsulation whenever possible, particularly in aggegates as the risk of self encapsulation failing is minimized by the size of the element.
@@ -125,7 +130,7 @@ repository.save(book);
 // storage will contain then
 => 
 {
-  id: 1234-0987,
+  id: "1234-0987",
   currentPage: 1,
   pagesInTheBook : 345
 }
@@ -148,7 +153,7 @@ repository.save(book);
 // storage will now contain
 => 
 {
-  id: 1234-0987,
+  id: "1234-0987",
   currentPage: 4,
   pagesInTheBook : 345
 }
@@ -170,7 +175,7 @@ BookAggregate(id, totalNumberOfPagesInTheBook){ // so by default
     // on creation we want to know that a new book is available from an event perspective too
     publish({
       bookIsbnCode: this.id,
-      eventName:'BookAdded',
+      eventName:"BookAdded",
       totalNumberOfPagesInTheBook: totalNumberOfPagesInTheBook,
       pageNumber : this.currentPage, // we assumed before that the initial page is page 1
       when: new Date().toISOString()
@@ -185,7 +190,7 @@ function moveToPage(pageNumber){
   // publishing the event 'MovedToPage' to track the page change to the parameter pageNumber
   publish({
     bookIsbnCode: this.id,
-    eventName:'MovedToPage',
+    eventName:"MovedToPage",
     pageNumber: pageNumber,
     when: new Date().toISOString()
   });
@@ -199,27 +204,27 @@ Let's assume the same behaviour as before is carried through but, instead of sav
 {% highlight javascript %}
 
 {
-  bookIsbnCode: 1234-0987,
-  eventName:'BookAdded',
+  bookIsbnCode: "1234-0987",
+  eventName:"BookAdded",
   totalNumberOfPagesInTheBook: 345,
   pageNumber: 1,
-  when: '2016-01-01T22:21:40.806Z'
+  when: "2016-01-01T22:21:40.806Z"
 }
 
 // then, moving to page 3
 {
-  bookIsbnCode: 1234-0987,
-  eventName:'MovedToPage',
+  bookIsbnCode: "1234-0987",
+  eventName:"MovedToPage",
   pageNumber: 3,
-  when: '2016-01-04T10:27:26.942Z'
+  when: "2016-01-04T10:27:26.942Z"
 }
 
 // then again, moving to page 4
 {
-  bookIsbnCode: 1234-0987,
-  eventName:'MovedToPage',
+  bookIsbnCode: "1234-0987",
+  eventName:"MovedToPage",
   pageNumber: 4,
-  when: '2016-01-06T15:04:34.347Z'
+  when: "2016-01-06T15:04:34.347Z"
 }
 
 {% endhighlight %}
