@@ -3,7 +3,7 @@ layout: post
 title:  "How to read a book with DDD"
 date:   2016-01-14 22:51:21 +0000
 categories: architecture design
-description: "differences between a vanilla Domain Driven Desing (DDD) and Event Sourcing (ES) from a persistence layer perspective"
+description: "differences between a vanilla Domain Driven Design (DDD) and Event Sourcing (ES) from a persistence layer perspective"
 published: true
 ---
 
@@ -37,8 +37,8 @@ function moveToPage(pageNumber){ ... };
 
 {% endhighlight %}
 
-Naturally we expect to be able to read, at any point, the page we are curretly at. 
-This page will be rapresented by any positive integer value within the interval from 1 to the page lenght of the book.
+Naturally we expect to be able to read, at any point, the page we are currently at. 
+This page will be represented by any positive integer value within the interval from 1 to the page length of the book.
 
 so a short aggregate root for the book entity would probably contain a constructor enforcing this
 
@@ -69,7 +69,7 @@ class BookAggregate
 
 {% endhighlight %}
 
-We already have a book rapresentation, defined at least by an identifier for the book so we can retrieve it any time, a current page and a number of pages. In addition to that a method of validating if the next page we want to jump to really exists in the book.
+We already have a book representation, defined at least by an identifier for the book so we can retrieve it any time, a current page and a number of pages. In addition to that a method of validating if the next page we want to jump to really exists in the book.
 
 Now we can consider the most complex scenario, jumping to a generic page in the book and we see that the implementation can be quite straightforward given what we have already seen in the class snippet.
 
@@ -95,7 +95,7 @@ function moveToPage(pageNumber){
 
 
 Again a direct sample that before moving to the desired page checks again if the action can be done successfully, if the book contains 105 pages and we try to read page 108 there is a problem somewhere.
-The other two methods that move a single page forward of backward can be internally implemented through the _moveToPage_ method, it is generally better to use self encapsulation whenever possible, particularly in aggegates as the risk of self encapsulation failing is minimized by the size of the element.
+The other two methods that move a single page forward of backward can be internally implemented through the _moveToPage_ method, it is generally better to use self encapsulation whenever possible, particularly in aggregates as the risk of self encapsulation failing is minimized by the size of the element.
 Self encapsulation starts failing only when there is at least one method of accessing the resources without the self encapsulation, therefore in a single file, tendentially small by the very principle guiding its design, we should be relatively safe.
 The last two methods can be quickly implemented as:
 
@@ -116,7 +116,7 @@ function moveToPreviousPage(){
 Now we have a simple model that describes how to read a book and can track all our progress from one page to next or, if we leave a long time between reads, how to pick up an old page or even skip forward if it become boring or too obvious.
 When does *Event Sourcing* starts being different then ?
 
-The answer is simple, in a vanilla DDD implementaion context every domain event will be applied to the _BookAggregate_ class and a repository will save the whole current state of the book (unique identifier, current page and total number of pages) so that at any time we have access only to the last valid state of the BookAggregate.
+The answer is simple, in a vanilla DDD implementation context every domain event will be applied to the _BookAggregate_ class and a repository will save the whole current state of the book (unique identifier, current page and total number of pages) so that at any time we have access only to the last valid state of the _BookAggregate_.
 
 
 {% highlight javascript %}
@@ -163,10 +163,10 @@ repository.save(book);
 Clearly the current page number is the last one persisted through the repository (i.e. 4). And in no case we can be sure of how we got there, the sample shown up until now, in fact, has skipped page 2. 
 
 Naturally, we can add more code and devise a neat strategy to address that issue. 
-Maybe by tracking the previous page too and comparing it to the next page we want to jump too, when the distance between the integer rapresentation of those pages is greater than one we are heading too far.
+Maybe by tracking the previous page too and comparing it to the next page we want to jump too, when the distance between the integer representation of those pages is greater than one we are heading too far.
 Maybe a page read system that tracks separately whenever we have accessed a page or not, possibly even when we did it by saving the time.
 
-Or we could use *Event Sourcing* and, instead of saving the whole BookAggregate as its current last status only we can save every single page change by adding 2 different type of events:
+Or we could use *Event Sourcing* and, instead of saving the whole _BookAggregate_ as its current last status only we can save every single page change by adding 2 different type of events:
 
 {% highlight javascript %}
 
@@ -198,7 +198,7 @@ function moveToPage(pageNumber){
 
 {% endhighlight %}
 
-We added 2 simple events, that can represent the whole status of any specific instance of a _BookAggregate_ class, and they will constitute an history of what happened.
+We added 2 simple events, that can represent the whole status of any specific instance of a _BookAggregate_ class, and they will constitute a history of what happened.
 Let's assume the same behaviour as before is carried through but, instead of saving the whole current state, at each iteration, we keep track of the events published and through the repository we save only those as a stream of changes, we will end up with something like the following:
 
 {% highlight javascript %}
@@ -237,7 +237,7 @@ Every question will not translate anymore in a SQL-like query, neither any other
 It will be much harder to analyze an event stream rather than simply querying a key-value database, and this will translate in a lot of clever code in many different places that is hard to maintain and requires a solid understanding of the basics.
 Event Sourcing code is generally more complex and requires following a set of rules which are very hard to enforce in automated fashion.
 
-ES requires careful event design and careful aggregate root classes implementation. If at any given point the aggregate root enters in a valid state there is no possibility of "updating" the current last available status quickly. Additionally any change to the set of events available and the worflows and processing handling those events has to be carefully evaluated (ideally through automated tests).
+ES requires careful event design and careful aggregate root classes implementation. If at any given point the aggregate root enters in a valid state there is no possibility of "updating" the current last available status quickly. Additionally any change to the set of events available and the workflows and processing handling those events has to be carefully evaluated (ideally through automated tests).
 
 Remember:
 
