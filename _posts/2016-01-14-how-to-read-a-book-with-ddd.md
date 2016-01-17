@@ -40,7 +40,7 @@ function moveToPage(pageNumber){ ... };
 Naturally we expect to be able to read, at any point, the page we are currently at. 
 This page will be represented by any positive integer value within the interval from 1 to the page length of the book.
 
-so a short aggregate root for the book entity would probably contain a constructor enforcing this
+So a short aggregate root for the book entity would probably contain a constructor enforcing this
 
 {% highlight javascript %}
 
@@ -111,10 +111,10 @@ function moveToPreviousPage(){
 
 {% endhighlight %}
 
-### What book am I reading again ?
+### What book am I reading again?
 
 Now we have a simple model that describes how to read a book and can track all our progress from one page to next or, if we leave a long time between reads, how to pick up an old page or even skip forward if it become boring or too obvious.
-When does *Event Sourcing* starts being different then ?
+When does *Event Sourcing* starts being different then?
 
 The answer is simple, in a vanilla DDD implementation context every domain event will be applied to the _BookAggregate_ class and a repository will save the whole current state of the book (unique identifier, current page and total number of pages) so that at any time we have access only to the last valid state of the _BookAggregate_.
 
@@ -230,7 +230,7 @@ Let's assume the same behaviour as before is carried through but, instead of sav
 {% endhighlight %}
 
 Given these simple set of events it's easy to figure out if page was skipped. 
-We could also answer questions like: "what page was I reading on 5th January ?", "Had I read page 24 on a given date ?" or "How many pages on average do I read in a week ?".
+We could also answer questions like: "what page was I reading on 5th January?", "Had I read page 24 on a given date?" or "How many pages on average do I read in a week?".
 
 This higher flexibility comes at a cost, and it is not cheap. 
 Every question will not translate anymore in a SQL-like query, neither any other declarative language nor any immediate intelligibility.
@@ -243,7 +243,7 @@ Remember:
 
 * We should always add the Aggregate Root unique identifier to each and every event or even the smartest system wouldn't be able to apply it to the right elements.
 
-* Event Sourcing can answer many questions but makes phrasing said questions a lot harder (Douglas Adams' "Hitchhiker's guides to the Galaxy" anyone ?)
+* Event Sourcing can answer many questions but makes phrasing said questions a lot harder (Douglas Adams' "Hitchhiker's guides to the Galaxy" anyone?)
 
 * Event Sourcing is effectively more error prone for beginners
 
