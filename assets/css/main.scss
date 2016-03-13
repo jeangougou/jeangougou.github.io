@@ -3,7 +3,10 @@
 ---
 @charset "utf-8";
 
-
+/* =Colors */
+$dorian: #F5F5F5;
+$iron: #333333;
+$cloudy: #828282;
 
 // Our variables
 
@@ -42,17 +45,19 @@ $on-laptop:        800px;
 //     }
 // }
 @mixin media-query($device) {
-    @media screen and (max-width: $device) {
-        @content;
-    }
+  @media screen and (max-width: $device) {
+    @content;
+  }
 }
 
 
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "syntax-highlighting",
-				"menu"
-;
+  "mixins",
+  "base",
+  "404",
+  "layout",
+  // "syntax-highlighting",
+  "menu"
+  ;
