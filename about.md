@@ -1,19 +1,15 @@
 ---
 layout: page
 title: About
-subtitle: Just who the hell you think I am?
 permalink: /about/
 ---
 
-{% assign random = site.time | date: "%s%N" | modulo: 5  %} //site.data.inspirational-quotes.size
-<blockquote>&ldquo;{{ site.data.inspirational-quotes[random].quote }}&rdquo; 
-	<cite>{{ site.data.inspirational-quotes[random].person }}</cite></blockquote>
+<amp-img width="600" height="300" layout="responsive" src="http://lorempixel.com/600/300/sports"></amp-img>
 
 <p>
 Hello everyone, I'm Jean. Work in IT, passionate and curious about most things.
 	Martial arts fans, in permanent Musha Shugyo;
 </p>
-
 
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
 
