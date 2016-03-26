@@ -3,3 +3,4 @@ _site
 _todo
 .jekyll-metadata
 .DS_Store
+*.orig
