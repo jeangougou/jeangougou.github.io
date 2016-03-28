@@ -1,7 +1,16 @@
 <footer class="site-footer">
   <a class="subscribe" href="{{ "/feed.xml" | prepend: site.baseurl }}"> <span class="tooltip"> <i class="fa fa-rss"></i> Subscribe!</span></a>
-    <div class="inner">
-         <section class="copyright">All content copyright <a href="mailto:{{ site.email}}">{{ site.name }}</a> &copy; {{ site.time | date: '%Y' }} &bull; All rights reserved.</section>
-         <section class="poweredby">Made with <a href="http://jekyllrb.com"> Jekyll</a> and <a href="https://github.com/ageitgey/amplify">Amplify</a></section>
-    </div>
+  <div class="inner">
+    <section class="copyright">All content copyright {% if site.email %}
+      <a href="mailto:{{ site.email}}">{{site.name}}</a>
+    {% else %}
+        {{site.name}}
+    {% endif %} &copy; {{ site.time | date: '%Y' }} &bull; All rights reserved.</section>
+    <section class="poweredby">Made with <a href="http://jekyllrb.com"> Jekyll</a> and <a href="https://github.com/ageitgey/amplify">Amplify</a></section>
+  </div>
+  <div>
+    <span>
+      <a href="https://github.com/jeangougou/jeangougou.github.io" target="_blank">dont't fork me on github!</a>
+    </span>
+  </div>
 </footer>

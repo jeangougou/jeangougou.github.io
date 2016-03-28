@@ -2,23 +2,23 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Awesome Site Title
-email: your-email@domain.com
+title: Jean Georges
+#email: your-email@domain.com
 description: >
-  Awesome site description here
-logo: "/assets/images/logo.jpg"
+  Rolling ramblings about life, universe and everything
+logo: "/assets/images/logo.svg"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://jean.georges.work" # the base hostname & protocol for your site
 paginate:	5 # The number of posts to show per page on your homepage
-
-name: 'Your Name'
+future: false # hides future dated posts
+show_drafts: false # hides drafts
+name: 'Jean Georges'
 bio: >
-  Mea suas vituperatoribus et, virtute corpora quaestio cum ut.
-  Ne solet nostrum complectitur pri, vis ut inani populo.
+  I'm Jean, facetious IT worker, INTJ, passionate and curious about most things, martial arts fans, in permanent `Musha Shugyo`
 author_image: "/assets/images/author.jpg"
-twitter_username: jekyllrb
-github_username:  jekyll
-
+twitter_username: jeangougou
+github_username:  jeangougou
+linkedin_username: jeangeorges
 # Build settings
 markdown: kramdown
 

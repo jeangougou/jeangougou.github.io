@@ -1,6 +1,7 @@
 ---
 layout: post
 title: My New Post
+published: false
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit!

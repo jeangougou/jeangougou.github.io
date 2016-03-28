@@ -5,11 +5,13 @@ date:   2016-01-14 22:51:21 +0000
 categories: architecture design
 description: "differences between a vanilla Domain Driven Design (DDD) and Event Sourcing (ES) from a persistence layer perspective"
 published: true
+tags:
+- ddd
 ---
 
 ### Wait, what's DDD again ?
 
-This article requires familiarity with DDD concepts. 
+This article requires familiarity with DDD concepts.
 
 Let's start with defining what DDD (domain driven design) is not:
 
@@ -53,13 +55,13 @@ function moveToPage(pageNumber){ ... };
 
 {% endhighlight %}
 
-We expect to be able to read, at any point, the page we are currently at. 
+We expect to be able to read, at any point, the page we are currently at.
 The current page number can thus be any positive integer value between one and the total length of the book.
 So a short _Aggregate Root_ for the book entity would contain a constructor enforcing this case.
 
 {% highlight javascript %}
 
-class BookAggregate 
+class BookAggregate
 {
   // a constructor shall always enforce a valid state, since the inception of a new instance
   // having the id generated as soon as possible can help a long way in a context of eventual consistency
@@ -72,10 +74,10 @@ class BookAggregate
   }
 
   // meant to be private
-  function isValidPage(nextPage){ 
+  function isValidPage(nextPage){
     return 1 <= nextPage && nextPage >= this.totalNumberOfPagesInTheBook;
   }
-  
+
   // simple getter, also private
   function getCurrentPage(){
     return this.currentPage;
@@ -91,18 +93,18 @@ The implementation can be quite straightforward given what we have already seen 
 
 {% highlight javascript %}
 
-function moveToPage(pageNumber){ 
+function moveToPage(pageNumber){
   // check if the page is in the book
   if(!isValidPage(pageNumber))
   {
     throw new Error(
       "Oh snap! the book only contains: "
-      + this.totalNumberOfPagesInTheBook 
-      + " and I can't really select page " 
+      + this.totalNumberOfPagesInTheBook
+      + " and I can't really select page "
       + pageNumber);
   }
   this.currentPage = 1;
-  ... 
+  ...
   // domain event publishing
   ...
 };
@@ -120,11 +122,11 @@ Using direct access to fields can void the benefits of self-encapsulation. By ma
 
 {% highlight javascript %}
 
-function moveToNextPage(){ 
+function moveToNextPage(){
   moveToPage(getCurrentPage() + 1);
 };
 
-function moveToPreviousPage(){ 
+function moveToPreviousPage(){
   moveToPage(getCurrentPage() - 1);
 };
 
@@ -134,7 +136,7 @@ function moveToPreviousPage(){
 
 Now we have a simple model on how to read a book and track our progress while reading it. We can move one page to the next, or skip forward, or even go back a chapter. When does *Event Sourcing* starts being different then?
 
-The answer is simple in theory (only). A vanilla DDD implementation saves exclusively the last valid state of the _Aggregate_. Last valid state is computed by applying all the previous events registered. In *Event Sourcing* instead we save all those events that lead to the incremental evolution of the _Aggregate_. In *Event Sourcing* then, we can read all events but one an get, for instance, the previous valid state. In a vanilla DDD implementation that would mean saving all the previous states separately. 
+The answer is simple in theory (only). A vanilla DDD implementation saves exclusively the last valid state of the _Aggregate_. Last valid state is computed by applying all the previous events registered. In *Event Sourcing* instead we save all those events that lead to the incremental evolution of the _Aggregate_. In *Event Sourcing* then, we can read all events but one an get, for instance, the previous valid state. In a vanilla DDD implementation that would mean saving all the previous states separately.
 
 
 {% highlight javascript %}
@@ -146,7 +148,7 @@ var book = commandHandler.CreateBook(isbnCode, pagesInTheBook);
 repository.save(book);
 
 // storage will contain then
-=> 
+=>
 {
   id: "1234-0987",
   currentPage: 1,
@@ -169,7 +171,7 @@ commandHandler.moveToPage(4);
 repository.save(book);
 
 // storage will now contain
-=> 
+=>
 {
   id: "1234-0987",
   currentPage: 4,
@@ -178,16 +180,16 @@ repository.save(book);
 
 {% endhighlight %}
 
-Clearly the current page number is the last one persisted through the repository (i.e. 4). And in no case we can be sure of how we got there, the sample shown up until now, in fact, has skipped page 2. 
+Clearly the current page number is the last one persisted through the repository (i.e. 4). And in no case we can be sure of how we got there, the sample shown up until now, in fact, has skipped page 2.
 
-Naturally, we can add more code and devise a neat strategy to address that issue. 
+Naturally, we can add more code and devise a neat strategy to address that issue.
 We could start tracking the previous page and add a comparison step; if the distance is more than one page, we are heading too far. Or  we could add a completely separate page tracking mechanism to show which pages we've already visited.
 
 Or again, we could move to *Event Sourcing* and start saving every simple valid operation that has happened:
 
 {% highlight javascript %}
 
-BookAggregate(id, totalNumberOfPagesInTheBook){ // so by default 
+BookAggregate(id, totalNumberOfPagesInTheBook){ // so by default
     ...
     // on creation we want to know that a new book is available from an event perspective too
     publish({
@@ -201,7 +203,7 @@ BookAggregate(id, totalNumberOfPagesInTheBook){ // so by default
 
 ...
 
-function moveToPage(pageNumber){ 
+function moveToPage(pageNumber){
   // previous implementation
   ...
   // publishing the event 'MovedToPage' to track the page change to the parameter pageNumber
@@ -247,7 +249,7 @@ What would these events look like then? Here's a first guess:
 
 {% endhighlight %}
 
-Given these simple set of events it's easy to figure out if page was skipped. 
+Given these simple set of events it's easy to figure out if page was skipped.
 We could also answer questions like: "what page was I reading on 5th January?", "Had I read page 24 on a given date?" or "How many pages on average do I read in a week?".
 
 This higher flexibility comes at a cost, and it is not cheap.

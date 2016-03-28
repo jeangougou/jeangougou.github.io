@@ -5,13 +5,16 @@ layout: default
   <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
     <div class="post-meta">
       <h1 class="post-title">{{ page.title }}</h1>
+      {% include post-meta.html %}
     </div>
-
     <section class="post-content" itemprop="articleBody">
       <a name="topofpage"></a>
       {{content}}
     </section>
     <footer class="post-footer">
+      <div class="post-meta">
+        {% include post-meta.html %}
+      </div>
       <section class="share">
         <a class="icon" href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.id }}&text={{page.title | cgi_escape}}&via={{ site.twitter_username }}" target="_blank">
           Share on
@@ -33,25 +36,40 @@ layout: default
                 {% include icon-github.html username=site.github_username %}
               {% endif %}
             </span>
-
+          </p>
+          <p>
             <span>
               {% if site.twitter_username %}
                 {% include icon-twitter.html username=site.twitter_username %}
               {% endif %}
             </span>
           </p>
+          <p>
+            <span>
+              {% if site.linkedin_username %}
+                {% include icon-linkedin.html username=site.linkedin_username %}
+              {% endif %}
+            </span>
+          </p>
           <hr>
-          <p class="published">Published <time datetime="{{ page.date | date: "%F %R" }}" itemprop="datePublished">{{ page.date | date_to_string }}</time></p>
         </section>
       </div>
-      {{/post}}
       <div class="isRight">
         <h5 class="index-headline featured"><span>Supported by</span></h5>
         <footer class="site-footer">
           <section class="poweredby">Proudly published with <a href="http://jekyllrb.com"> Jekyll</a> and <a href="https://github.com/ageitgey/amplify">Amplify</a></section>
           <a class="subscribe" href="{{ "/feed.xml" | prepend: site.baseurl }}"> <span class="tooltip"> <i class="fa fa-rss"></i> You should subscribe to my feed.</span></a>
           <div class="inner">
-            <section class="copyright">All content copyright <a href="mailto:{{ site.email}}">{{site.name}}</a> &copy; {{ site.time | date: '%Y' }}<br>All rights reserved.</section>
+            <section class="copyright">All content copyright {% if site.email %}
+                <a href="mailto:{{ site.email}}">{{site.name}}</a>
+              {% else %}
+                {{site.name}}
+              {% endif %} &copy; {{ site.time | date: '%Y' }}<br>All rights reserved.</section>
+          </div>
+          <div>
+            <span>
+              <a href="https://github.com/jeangougou/jeangougou.github.io" target="_blank">dont't fork me on github!</a>
+            </span>
           </div>
         </footer>
       </div>

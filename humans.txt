@@ -1,0 +1,10 @@
+/* TEAM */
+  Your title: Jean Georges
+  Twitter: @jeangougou
+  Github: jeangougou
+  Location: London, United Kingdom.
+
+/* SITE */
+Language: English
+Components: Jekyll, AMP
+Software: Adobe Brakets, Notepad++
