@@ -2,13 +2,18 @@
 layout: post
 title:  "the anti-tectural design"
 date:   2016-02-01 10:10:21 +0000
-categories: architecture design
-published: false
+categories: architecture design repository
+description: "repository pattern most common mistakes"
+published: true
+tags:
+-architecture
+-design pattern
+-repository
 ---
 
 ## What is a Repository Pattern ?
 
-There’s a lot of misconception around about the the Repository Pattern should work. Some even due to a misunderstanding of the pattern itself. As [PoEAA Repository][PoEAA] describes it, the Repository is a pattern meant to:
+There’s a lot of misconception around about the Repository Pattern should work. Some even due to a misunderstanding of the pattern itself. As [PoEAA Repository][PoEAA] describes it, the Repository is a pattern meant to:
 
 > Mediates between the domain and data mapping layers using a collection-like interface for accessing domain objects.
 
@@ -42,11 +47,11 @@ Mapped to the use case of storing a package is the ability to call a save method
 
 Mapped to the use case of retrieving at any time there is the ability to call a query method by reference code. Or rather asking a clerk to retrieve you the package you stored a long time ago by showing the receipt.
 
-Your repository pattern is a clerk.
-Your storage is the warehouse.
-Your packages are data entities.
+Your repository pattern is a clerk.  
+Your storage is the warehouse.  
+Your packages are data entities.  
 
-#### References
+Have fun!
 
 [PoEAA Repository]: http://www.martinfowler.com/eaaCatalog/repository.html
 [Microsoft's Repository Pattern]:https://msdn.microsoft.com/en-us/library/ff649690.aspx
