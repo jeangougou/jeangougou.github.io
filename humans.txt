@@ -7,4 +7,4 @@
 /* SITE */
 Language: English
 Components: Jekyll, AMP
-Software: Adobe Brakets, Notepad++
+Software: Adobe Brakets, Atom, Notepad++

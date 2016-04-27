@@ -6,9 +6,9 @@ categories: architecture design repository
 description: "repository pattern most common mistakes"
 published: true
 tags:
--architecture
--design pattern
--repository
+- architecture
+- design pattern
+- repository
 ---
 
 ## What is a Repository Pattern ?
