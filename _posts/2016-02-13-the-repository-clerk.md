@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "the anti-tectural design"
+title:  "repository pattern and the clerk metaphor"
 date:   2016-02-01 10:10:21 +0000
 categories: architecture design repository
 description: "repository pattern most common mistakes"
