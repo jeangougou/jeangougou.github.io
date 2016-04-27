@@ -4,7 +4,7 @@ slug: jekyll-first-post
 title:  "Welcome to Jekyll!"
 date:   2016-01-02 21:39:21 +0000
 categories: jekyll update
-published: true
+published: false
 description: "initial jekyll post"
 tags:
 - none
