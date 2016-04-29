@@ -4,7 +4,7 @@ title:  "Hyper-V's scarce docker support"
 date:   2016-02-01 10:10:21 +0000
 categories: docker hyper-v devops
 description: "Hyper-V's scarce docker support"
-published: false
+published: true
 tags:
 - docker
 - hyper-v
