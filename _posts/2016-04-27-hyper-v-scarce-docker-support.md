@@ -58,14 +58,13 @@ This last command can happen to fail due to timeout, which is puzzling because t
 
 ### Hyper-V limitations
 
-If you happen to play with Android development or just need to run many different virtual machines locally, you will have figured out that Hyper-V is pretty much incompatible with anything else. As the default installation of _docker_ and other tools require _virtualbox_ you will notice the following happening:
+If you happen to play with Android development or just need to run many different virtual machines locally, you will have figured out that Hyper-V is pretty much incompatible with anything else. As the default installation of _docker_ and other tools require _virtualbox_ you will notice the following happening:  
 
 - _VirtualBox_ will not be able to run 64-bit VMs
 - Android emulator will fail to start
 
 Luckily you can solve each and every issue by uninstalling Hyper-V completely and using only virtual box.
-If you do that, not only will you be able to run 64bit images, but every other tool available in the _docker_ toolbox will work seamlessly.  
-Hyper-V is nice, but just not ready for prime time in development IMHO.
+If you do that, not only will you be able to run 64bit images, but every other tool available in the _docker_ toolbox will work seamlessly. Hyper-V is nice, but just not ready for prime time in development IMHO.
 
 ## When you finally decide Hyper-V is not worth the trouble
 
@@ -91,6 +90,7 @@ By using only _VirtualBox_ and the default tools that docker provides you for wi
 // assuming you have a local Dockerfile
 > docker build .
 ```
+
 #### Issues you might encounter
 
 When blocked by hypervisor not running a potential solution is to run the following command before restarting
