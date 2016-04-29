@@ -12,8 +12,6 @@ tags:
 - windows
 ---
 
-# Hyper-V's scarce docker support
-
 TL,DR;  
 Uninstall completely Hyper-V and enjoy virtualbox with 64-bit emulation and Android emulation.
 
