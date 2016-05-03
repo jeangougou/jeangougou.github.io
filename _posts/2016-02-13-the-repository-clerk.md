@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "repository pattern and the clerk metaphor"
-date:   2016-02-01 10:10:21 +0000
+date:   2016-02-13 10:10:21 +0000
 categories: architecture design repository
 description: "repository pattern most common mistakes"
 published: true

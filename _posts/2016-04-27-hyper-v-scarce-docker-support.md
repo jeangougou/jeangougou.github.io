@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Hyper-V's scarce docker support"
-date:   2016-02-01 10:10:21 +0000
+date:   2016-04-27 10:10:21 +0000
 categories: docker hyper-v devops
 description: "Hyper-V's scarce docker support"
 published: true

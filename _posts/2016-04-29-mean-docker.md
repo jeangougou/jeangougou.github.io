@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Mean docker"
-date:   2016-02-01 10:10:21 +0000
+date:   2016-04-29 10:10:21 +0000
 categories: docker mongodb nodejs angular mean stack
 description: "Mean stack docker"
 published: false
