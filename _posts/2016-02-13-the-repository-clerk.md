@@ -13,7 +13,7 @@ tags:
 
 ## What is a Repository Pattern ?
 
-There’s a lot of misconception around about the Repository Pattern should work. Some even due to a misunderstanding of the pattern itself. As [PoEAA Repository][PoEAA] describes it, the Repository is a pattern meant to:
+There’s a lot of misconception around about the Repository Pattern should work. Some even due to a misunderstanding of the pattern itself. As [PoEAA][PoEAA Repository] describes it, the Repository is a pattern meant to:
 
 > Mediates between the domain and data mapping layers using a collection-like interface for accessing domain objects.
 
