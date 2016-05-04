@@ -5,7 +5,7 @@
 title: Jean Georges
 #email: your-email@domain.com
 description: >
-  Rolling ramblings about life, universe and everything
+  Rolling ramblings about life, the universe and everything
 logo: "/assets/images/logo.svg"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://jean.georges.work" # the base hostname & protocol for your site
