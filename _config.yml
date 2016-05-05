@@ -8,7 +8,7 @@ description: >
   Rolling ramblings about life, the universe and everything
 logo: "/assets/images/logo.svg"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://jean.georges.work" # the base hostname & protocol for your site
+url: "http://jeangougou.github.io" # the base hostname & protocol for your site
 paginate:	5 # The number of posts to show per page on your homepage
 future: false # hides future dated posts
 show_drafts: false # hides drafts
