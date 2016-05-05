@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "CQRS vs MVC"
-date:   2016-05-5 23:51:21 +0000
+date:   2016-05-04 23:51:21 +0000
 categories: architecture
 description: "Differences and similarities between CQRS and MVC"
 published: true
