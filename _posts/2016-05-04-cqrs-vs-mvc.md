@@ -48,6 +48,8 @@ Regardless of the implementation, another difference is related to the amount of
 
 _CQRS_ allows for higher theoretical scalability. This is not a feature by itself, it can achieve it by increasing software complexity and making debug more difficult, therefore it is not a valid reason to favor it over other options if scaling is not an issue with other implementations.
 
+_CQRS_ allows for better view-model composition, as each element can be tailored to suit the needs of their respective consumer.
+
 ### Conclusions
 
 _MVC_ and _CQRS_ can work together, or you can pick one over the other depending on your requirements. CQRS will add complexity to the solution by adding more components and changes of expected behavior (see [Eventual Consistency][Eventual_consistency]). Don't pick _CQRS_ over _MVC_ for a simple application, it's probably not worth the effort.
