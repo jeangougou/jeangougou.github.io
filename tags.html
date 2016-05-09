@@ -1,0 +1,18 @@
+---
+layout: page
+title: Tags
+permalink: /tags/
+isMenu: false
+---
+{% for tag in site.tags %}
+<p>
+  <h4>
+    {% if tag[0] != 'none' %}
+      <a name="{{ tag[0] }}"></a>{{ tag[0] }}
+    {% endif %}
+  </h4>
+  {% for post in tag[1] %}
+    <li><a href="{{ post.url | remove:'.html' }}">{{ post.title }}</a> ({{ post.date | date_to_string }})</li>
+  {% endfor %}
+</p>
+{% endfor %}

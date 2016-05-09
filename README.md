@@ -5,7 +5,7 @@ It'll be mostly a blog, maybe evolve into something better shaped later on in th
 
 ### how to configure something similar
 
-install jekyll on ruby, run 
+install jekyll on ruby, run
 
 ```
 jekyll serve
@@ -13,3 +13,6 @@ jekyll serve
 
 this will run a local instance on localhost:4000
 
+### References
+
+[amp] https://github.com/ageitgey/amplify

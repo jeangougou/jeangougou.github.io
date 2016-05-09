@@ -1,23 +1,31 @@
 # Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
 title: Jean Georges
-# email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Yet another techie blog. Everything percieved through my five senses: music, coffee, martial arts, coding and people I care about.
+#email: your-email@domain.com
+description: >
+  Rolling ramblings about life, the universe and everything
+logo: "/assets/images/logo.svg"
 baseurl: "" # the subpath of your site, e.g. /blog
-# url: "http://yourdomain.com" # the base hostname & protocol for your site
-# url: "http://127.0.0.1:4000"
+url: "http://jeangougou.github.io" # the base hostname & protocol for your site
+paginate:	5 # The number of posts to show per page on your homepage
+future: false # hides future dated posts
+show_drafts: false # hides drafts
+name: 'Jean Georges'
+bio: >
+  I'm Jean, facetious IT worker, INTJ, passionate and curious about most things, martial arts fans, in permanent `Musha Shugyo`
+author_image: "/assets/images/author.jpg"
 twitter_username: jeangougou
 github_username:  jeangougou
-
+linkedin_username: jeangeorges
 # Build settings
 markdown: kramdown
 
+kramdown:
+  parse_block_html: true
+
+gems:
+  - jekyll-paginate
 
 exclude: ["README.md"]

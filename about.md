@@ -1,26 +1,14 @@
 ---
 layout: page
 title: About
-subtitle: Just who the hell you think I am?
 permalink: /about/
+isMenu: true
 ---
 
-{% assign random = site.time | date: "%s%N" | modulo: 5  %} //site.data.inspirational-quotes.size
-<blockquote>&ldquo;{{ site.data.inspirational-quotes[random].quote }}&rdquo; 
-	<cite>{{ site.data.inspirational-quotes[random].person }}</cite></blockquote>
+I'm Jean,  
+polyglot software developer, paragon of curiosity, passionate about most things.  
+Martial arts fan in permanent [Musha Shugyō][1].  
+Trying to learn [한글][2](Korean) in my spare time.
 
-<p>
-Hello everyone, I'm Jean. Work in IT, passionate and curious about most things.
-	Martial arts fans, in permanent Musha Shugyo;
-</p>
-
-
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
-
-You can find the source code for the Jekyll new theme at:
-{% include icon-github.html username="jglovier" %} /
-[jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at
-{% include icon-github.html username="jekyll" %} /
-[jekyll](https://github.com/jekyll/jekyll)
+[1]:https://en.wikipedia.org/wiki/Musha_shugy%C5%8D
+[2]:https://en.wikipedia.org/wiki/Hangul
