@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "git with class - part 1"
-date:   2016-05-14 15:44:23 +0000
+date:   2016-05-09 16:04:23 +0000
 categories: git
 description: "details about git commands"
 published: true
@@ -48,6 +48,35 @@ If the test can be scripted it may be convenient to do so and execute ```git bis
 
 ### The Stash
 
+While working on a feature branch, when priorities shift, there's the need to quickly move from a branch to the next. Often the state of things is not ready to be committed anywhere. For this occasions ```git stash``` is the tool to use.  
+Stash is a temporary local repository of changes that can be re-applied on top of the current local state at any time.  
+Another sample of common workflows:  
 
+```
+# move current pending changes into the stash stack
+> git stash
+#
+# change branch, do other thigs, go back to the previous branch
+#
+# and apply the changes from before
+> git stash pop
+
+```
+
+There are more complicated scenarios, obviously, and in some cases we end up saving multiple elements in the stash.
+For a list of available saved changes we can execute ```git stash list```. It's nice to notice that the default description in git is self-explanatory _WIP on <BRANCH_NAME>_ (wip as in work in progress), but in case we want more descriptive names, it is possible to add a custom description through ```git stash save '<COMMENT>'```.  
+
+### The wheel of time
+
+Every single git user at one point has had the necessity of go back to a previous file revision. It's one of the main purposes of the tool one would expect, and yet there's always a bit of googling involved the first times because of some very easy concepts missing. Let's fix that. We all know that each change in git is marked by an hash value, which can be shortened most times to about an 8 characters string. That revision hash is the only element we need to sync to any point in time desired. We can use 3 different commands for that, ```checkout```,```reset``` or ```show```.
+There are minor differences among them:
+
+- ```show``` will print the content into the terminal, which allows to redirect it into a file tool
+- ```reset``` will sync to a specific revision and drop untracked changes
+- ```checkout``` will act as reset while keeping the pending changes
+
+Syntax for the command is ```git reset/checkout/show <REVISION>```.
+
+Quite easy, isn't it ?
 
 [binary-search-algo]:https://en.wikipedia.org/wiki/Binary_search_algorithm
