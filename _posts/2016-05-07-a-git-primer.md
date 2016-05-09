@@ -183,6 +183,7 @@ git reset --hard FETCH_HEAD
 git push origin dev
 
 ```
+
 #### Pull requests got merged before mine and now I have conflicts
 
 This can happen quite often, particularly when working in larger teams. As a general rule, you should always start from the latest available development branch, and occasionally pull the latest changes to keep being in sync while developing your feature.
