@@ -32,7 +32,7 @@ Any git instance has one global .gitconfig file and a local one which will overw
 It's always a good idea to have a solid and reliable .gitconfig file.
 
 **Windows Sample**  
-```
+{% highlight javascript %}
 
 [core]  
 	autocrlf = False  
@@ -80,8 +80,8 @@ It's always a good idea to have a solid and reliable .gitconfig file.
 	br = branch  
 	up = rebase  
 	ci = commit  
-
-```
+	
+{% endhighlight %}
 
 Most of the instructions there are valid across multiple instances. Feel free to change the path to your favorite 3-way comparison tool. I like [KDiff3](http://kdiff3.sourceforge.net/) also because it's cross platform, but pick your favorite tool ([1](https://gist.github.com/shawndumas/6158524)).
 
