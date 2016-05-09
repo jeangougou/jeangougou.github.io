@@ -31,54 +31,56 @@ to read what installed version you currently have and confirm that the installat
 Any git instance has one global .gitconfig file and a local one which will overwrite global configuration.
 It's always a good idea to have a solid and reliable .gitconfig file.
 
-**Windows Sample**
+**Windows Sample**  
 ```
-[core]
-	autocrlf = False
-	repositoryformatversion = 0
-	filemode = false
-	bare = false
-	logallrefupdates = true
-	symlinks = false
-	ignorecase = true
-	hideDotFiles = dotGitOnly
-	whitespace = cr-at-eol
-	pager = less -x4
-[color]
-	ui = auto
-[credential]
-	helper = !\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\"
+
+[core]  
+	autocrlf = False  
+	repositoryformatversion = 0  
+	filemode = false  
+	bare = false  
+	logallrefupdates = true  
+	symlinks = false  
+	ignorecase = true  
+	hideDotFiles = dotGitOnly  
+	whitespace = cr-at-eol  
+	pager = less -x4  
+[color]  
+	ui = auto  
+[credential]  
+	helper = !\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\"  
 [user]
-	name = FirstName.Surname
-	email = FirstName.Surname@mailprovider.com
-[merge]
-	tool = kdiff3
-[mergetool "kdiff3"]
-	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
-[diff]
-	guitool = kdiff3
-[difftool "kdiff3"]
-	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
-[fetch]
-	prune = true
-[push]
-	default = current
-[url "https://"]
-	insteadOf = git://
-[format]
-	pretty = %C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n%C(white)%s%C(reset) %C(bold white)— %an%C(reset)
-[help]
-	autocorrect = 1
-[filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
-[alias]
-	st = status
-	co = checkout
-	br = branch
-	up = rebase
-	ci = commit
+	name = FirstName.Surname  
+	email = FirstName.Surname@mailprovider.com  
+[merge]  
+	tool = kdiff3  
+[mergetool "kdiff3"]  
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe  
+[diff]  
+	guitool = kdiff3  
+[difftool "kdiff3"]  
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe  
+[fetch]  
+	prune = true  
+[push]  
+	default = current  
+[url "https://"]  
+	insteadOf = git://  
+[format]  
+	pretty = %C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n%C(white)%s%C(reset) %C(bold white)— %an%C(reset)  
+[help]  
+	autocorrect = 1  
+[filter "lfs"]   
+	clean = git lfs clean %f  
+	smudge = git lfs smudge %f  
+	required = true  
+[alias]  
+	st = status  
+	co = checkout  
+	br = branch  
+	up = rebase  
+	ci = commit  
+
 ```
 
 Most of the instructions there are valid across multiple instances. Feel free to change the path to your favorite 3-way comparison tool. I like [KDiff3](http://kdiff3.sourceforge.net/) also because it's cross platform, but pick your favorite tool ([1](https://gist.github.com/shawndumas/6158524)).
