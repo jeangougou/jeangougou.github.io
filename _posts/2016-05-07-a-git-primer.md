@@ -40,46 +40,46 @@ It's always a good idea to have a solid and reliable .gitconfig file.
 	filemode = false  
 	bare = false  
 	logallrefupdates = true  
-	symlinks = false  
-	ignorecase = true  
-	hideDotFiles = dotGitOnly  
-	whitespace = cr-at-eol  
-	pager = less -x4  
-[color]  
-	ui = auto  
-[credential]  
-	helper = !\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\"  
+	symlinks = false
+	ignorecase = true
+	hideDotFiles = dotGitOnly
+	whitespace = cr-at-eol
+	pager = less -x4
+[color]
+	ui = auto
+[credential]
+	helper = !\"C:/Program Files (x86)/GitExtensions/GitCredentialWinStore/git-credential-winstore.exe\"
 [user]
-	name = FirstName.Surname  
-	email = FirstName.Surname@mailprovider.com  
-[merge]  
-	tool = kdiff3  
-[mergetool "kdiff3"]  
-	path = C:/Program Files (x86)/KDiff3/kdiff3.exe  
-[diff]  
-	guitool = kdiff3  
-[difftool "kdiff3"]  
-	path = C:/Program Files (x86)/KDiff3/kdiff3.exe  
-[fetch]  
-	prune = true  
-[push]  
-	default = current  
-[url "https://"]  
-	insteadOf = git://  
-[format]  
-	pretty = %C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n%C(white)%s%C(reset) %C(bold white)— %an%C(reset)  
-[help]  
-	autocorrect = 1  
-[filter "lfs"]   
-	clean = git lfs clean %f  
-	smudge = git lfs smudge %f  
-	required = true  
-[alias]  
-	st = status  
-	co = checkout  
-	br = branch  
-	up = rebase  
-	ci = commit  
+	name = FirstName.Surname
+	email = FirstName.Surname@mailprovider.com
+[merge]
+	tool = kdiff3
+[mergetool "kdiff3"]
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+[diff]
+	guitool = kdiff3
+[difftool "kdiff3"]
+	path = C:/Program Files (x86)/KDiff3/kdiff3.exe
+[fetch]
+	prune = true
+[push]
+	default = current
+[url "https://"]
+	insteadOf = git://
+[format]
+	pretty = %C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n%C(white)%s%C(reset) %C(bold white)— %an%C(reset)
+[help]
+	autocorrect = 1
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
+	required = true
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	up = rebase
+	ci = commit
 
 {% endhighlight %}
 
