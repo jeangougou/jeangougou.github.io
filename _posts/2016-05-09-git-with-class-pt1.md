@@ -3,7 +3,7 @@ layout: post
 title:  "git with class - part 1"
 date:   2016-05-09 16:04:23 +0000
 categories: git
-description: "details about git commands"
+description: "details about git commands (blame, bisect and stash)"
 published: true
 tags:
 - git
