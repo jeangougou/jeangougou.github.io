@@ -35,7 +35,7 @@ It's always a good idea to have a solid and reliable .gitconfig file.
 {% highlight python %}
 
 [core]  
-	autocrlf = False  
+	autocrlf = false  
 	repositoryformatversion = 0  
 	filemode = false  
 	bare = false  
