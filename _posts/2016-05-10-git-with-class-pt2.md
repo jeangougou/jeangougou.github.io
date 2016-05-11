@@ -1,10 +1,10 @@
 ---
 layout: post
-title:  "git with class - part 1"
-date:   2016-05-14 10:02:14 +0000
+title:  "git with class - part 2"
+date:   2016-05-10 10:02:14 +0000
 categories: git
 description: "details about git commands (request-pull, format-patch, am)"
-published: false
+published: true
 tags:
 - git
 ---
