@@ -9,6 +9,12 @@ tags:
 - git
 ---
 
+Deepen your git knowledge with the following posts:  
+[A git primer](http://jeangougou.github.io/git/2016/05/07/a-git-primer.html)  
+[Git with class pt 1](http://jeangougou.github.io/git/2016/05/09/git-with-class-pt1.html)  
+[Git with class pt 2](http://jeangougou.github.io/git/2016/05/10/git-with-class-pt2.html)  
+[Git with class pt 3](http://jeangougou.github.io/git/2016/05/16/git-with-class-pt3.html)  
+
 #### Pull requests
 
 Everyone loves to create pull requests, don't they ? It's the clean powered engine that runs many OS project.

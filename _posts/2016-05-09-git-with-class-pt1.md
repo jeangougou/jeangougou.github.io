@@ -9,6 +9,12 @@ tags:
 - git
 ---
 
+Deepen your git knowledge with the following posts:  
+[A git primer](http://jeangougou.github.io/git/2016/05/07/a-git-primer.html)  
+[Git with class pt 1](http://jeangougou.github.io/git/2016/05/09/git-with-class-pt1.html)  
+[Git with class pt 2](http://jeangougou.github.io/git/2016/05/10/git-with-class-pt2.html)  
+[Git with class pt 3](http://jeangougou.github.io/git/2016/05/16/git-with-class-pt3.html)  
+
 One thing I need to mention before the article is that every git command will imply the use of a bash-like terminal. UIs for source-control are notoriously less flexible and lack some of the more advanced functionality altogether. Also familiarity with _git_ itself is required to understand the following.
 
 ### It has to be someone's fault
