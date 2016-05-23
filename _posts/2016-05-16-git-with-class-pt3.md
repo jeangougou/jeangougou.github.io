@@ -13,7 +13,7 @@ Deepen your git knowledge with the following posts:
 [A git primer](http://jeangougou.github.io/git/2016/05/07/a-git-primer.html)  
 [Git with class pt 1](http://jeangougou.github.io/git/2016/05/09/git-with-class-pt1.html)  
 [Git with class pt 2](http://jeangougou.github.io/git/2016/05/10/git-with-class-pt2.html)  
-[Git with class pt 3](http://jeangougou.github.io/git/2016/05/16/git-with-class-pt3.html)  
+_[Git with class pt 3](http://jeangougou.github.io/git/2016/05/16/git-with-class-pt3.html)_  
 
 History can be rewritten. No needs for a time machine, _git_ can do that for you.
 Out of the box a number of filters are provided for [git filter-branch][git-filter-branch] command.

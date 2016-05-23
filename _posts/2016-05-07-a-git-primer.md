@@ -10,7 +10,7 @@ tags:
 ---
 
 Deepen your git knowledge with the following posts:  
-_[A git primer](http://jeangougou.github.io/git/2016/05/07/a-git-primer.html)_
+_[A git primer](http://jeangougou.github.io/git/2016/05/07/a-git-primer.html)_  
 [Git with class pt 1](http://jeangougou.github.io/git/2016/05/09/git-with-class-pt1.html)  
 [Git with class pt 2](http://jeangougou.github.io/git/2016/05/10/git-with-class-pt2.html)  
 [Git with class pt 3](http://jeangougou.github.io/git/2016/05/16/git-with-class-pt3.html)  
