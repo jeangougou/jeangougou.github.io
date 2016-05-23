@@ -9,6 +9,11 @@ tags:
 - git
 ---
 
+Deepen your git knowledge with the following posts:  
+[Git with class pt 1](http://jeangougou.github.io/git/2016/05/09/git-with-class-pt1.html)  
+[Git with class pt 2](http://jeangougou.github.io/git/2016/05/10/git-with-class-pt2.html)  
+[Git with class pt 3](http://jeangougou.github.io/git/2016/05/16/git-with-class-pt3.html)  
+
 There are many online resources covering the getting started phase for git.
 
 [Simple getting started](http://rogerdudler.github.io/git-guide/)
