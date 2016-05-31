@@ -35,6 +35,7 @@ I'm assuming you have installed it already from [fsprojects][F#github] or you ca
 In this tutorial the code will be compatible with both the [REPL][REPL] or through compilation and debugging in visual studio or other IDEs.
 
 The small trick used to make it work on both environments is the use of compiler directives that can separate the scenarios for us. The [REPL][REPL] will leverage ```INTERACTIVE```, while debug and run from the IDE will interpret ```COMPILED```. Snippet to handle the logic is:
+
 ```
 open System
 
@@ -49,8 +50,8 @@ let main argv =
 #if INTERACTIVE
 fsi.CommandLineArgs |> Seq.skip 1 |> Seq.toArray |> main
 #endif
-
 ```
+
 
 ### Loops and conditional statements
 
