@@ -96,7 +96,7 @@ Most of the instructions there are valid across multiple instances. Feel free to
 
 We will be using [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) on top of a [Forking workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow)
 
-So whenever you partake in a new project the first thing to do would be to fork the main project, and add one repository per partecipant.
+So whenever you partake in a new project the first thing to do would be to fork the main project, and add one repository per participant.
 
 Let's say I'm forking [protobuf](https://github.com/google/protobuf);
 
