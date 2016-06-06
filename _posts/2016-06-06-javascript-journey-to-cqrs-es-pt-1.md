@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "JavaScript journey to CQRS/ES in JS - pt1"
+title:  "JavaScript journey to CQRS-ES in JS - pt1"
 date:   2016-06-06 18:49:23 +0000
 categories: programming
 description: "evolution from classical N-tier development architectures to CQRS, and subsequently Event sourcing with sample JavaScript implementation; part 1"
