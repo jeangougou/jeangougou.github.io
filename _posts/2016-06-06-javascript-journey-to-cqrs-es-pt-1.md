@@ -12,11 +12,7 @@ tags:
 - MEAN
 ---
 
- {>>
-Follow the complete journey and update your application:  
-[JavaScript journey to CQRS/ES in JS  pt 1](http://jeangougou.github.io/git/2016/05/09/git-with-class-pt1.html)  
-[JavaScript journey to CQRS/ES in JS  pt 2](#) - _Coming soon_
- <<}
+
 
 Everyone knows what an MVC architecture is, or let's assume so.
 We can start this journey with a simple example by focusing on improving the sample [Todo MVC][TodoMVC-angularPerf]. The version selected is a simplified one leveraging angularjs with a little performance optimization. Don't worry about this, it is quite simple and we will explain what happens under the hood.
