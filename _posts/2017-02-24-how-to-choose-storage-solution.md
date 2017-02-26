@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "How to choose a storage solution"
-date:   2016-05-04 23:51:21 +0000
+date:   2016-02-24 23:51:21 +0000
 categories: architecture storage infrastructure
 description: "RDBMS, document, key-value, columns and tables. How to pick the right database type for your needs"
 published: true
